@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Global from '../Global';
-import { Navigate } from 'react-router-dom';
+
 
 export default class NuevoPersonaje extends Component {
     cajaNombreRef= React.createRef();
@@ -15,7 +15,7 @@ export default class NuevoPersonaje extends Component {
         statusSerie : false
     }
 
-    cargarSerie = () =>{
+    cargarSerie = ()=>{
         var request = "/api/Series";
         var url = Global.urlSeries + request
         axios.get(url).then(res => {
@@ -34,6 +34,7 @@ export default class NuevoPersonaje extends Component {
         e.preventDefault();
         var request = "/api/Personajes";
         var url = Global.urlSeries+request;
+        
         var nom = this.cajaNombreRef.current.value;
         var img= this.cajaImagenRef.current.value;
         var ser = parseInt(this.selectedSerie.current.value);
@@ -64,12 +65,18 @@ export default class NuevoPersonaje extends Component {
         <h1 style={{color:"blue"}}>Nuevo personaje</h1>
         <form style={{width: "500px", margin: "0 auto"}}>
             <label>Nombre: </label>
+
+
             <input style={{textAlign:"center"}} type="text" className='form-control'
             ref={this.cajaNombreRef} required/><br/>
             <label>Imagen: </label>
+
+
             <input style={{textAlign:"center"}} type="text" className='form-control'
             ref={this.cajaImagenRef} required/><br/>
             <label>Serie: </label>
+
+
             <select style={{textAlign:"center"}} type="text" className='form-control'
             ref={this.selectedSerie} required>
                 {this.state.statusSerie == true &&

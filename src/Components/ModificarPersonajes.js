@@ -73,7 +73,9 @@ export default class ModificarPersonajes extends Component {
                             this.state.series.map((series, index) => {
                                 return (<option key={series.idSerie} value={series.idSerie}>
                                     {series.nombre}
-                                </option>)
+                                </option>
+                                
+                                )
                             })
                         }
                     </select>
@@ -99,7 +101,28 @@ export default class ModificarPersonajes extends Component {
                     </button>
 
                 </form>
+                <div >
+                    
+                    {   
+                        this.state.statusSeries == true &&
+                        this.state.series.map((serie,index)=>{
+                            return(<img src={serie.imagen}>
+                                    
+                            </img>)
+                        })
 
+                    }
+                    {   
+                        this.state.statusPersonajes == true &&
+                        this.state.personajes.map((personaje,index)=>{
+                            return(<img src={personaje.imagen}>
+                                    
+                            </img>)
+                        })
+
+                    }
+
+                </div>
                 {
                     this.state.statusUpdate &&
                     <h2 style={{ color: "blue" }}>{this.state.mensaje}</h2>
