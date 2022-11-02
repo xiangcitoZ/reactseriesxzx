@@ -12,6 +12,7 @@ export default class DetallesSeries extends Component {
         status:false
     }
 
+    //CARGAR LA SERIE
     loadSeries = () =>{
         var id = this.props.idseries;
         console.log(id);
@@ -28,6 +29,7 @@ export default class DetallesSeries extends Component {
 
     }
 
+    //PARA ACTUALIZAR LA PAGINA LA SERIE AL CAMBIAR 
     componentDidUpdate = (oldProps) =>{
         if(oldProps.idseries != this.props.idseries)
         {
@@ -52,6 +54,7 @@ export default class DetallesSeries extends Component {
         <h1>IMDB: {this.state.series.puntuacion}</h1>
         <br/>
         <br/>
+        
         <NavLink to={"/personajes/"+this.props.idseries} className="btn btn-success">Personajes</NavLink>
 
       </div>
